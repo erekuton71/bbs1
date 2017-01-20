@@ -1,3 +1,8 @@
+<?php
+require_once 'DbManager.php';
+require_once 'Encode.php';
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <html>
@@ -12,8 +17,6 @@
 </form>
 
 <?php
-require_once 'DbManager.php';
-require_once 'Encode.php';
 try {
 //データベースへの接続を確立
 $db = getDb();
@@ -23,10 +26,8 @@ $stt->execute();
 //結果セットの内容を順に出力
 while($row = $stt->fetch(PDO::FETCH_ASSOC)) {
 ?>
-<p><?php e($row['id']); ?>  名前：<?php e($row['name']); ?>   <?php e($row['datetime']); ?></p>
-
-<p><?php e($row['contents']); ?></p>
-
+    <p><?php e($row['id']); ?>  名前：<?php e($row['name']); ?>   <?php e($row['datetime']); ?></p>
+    <p><?php e($row['contents']); ?></p>
 <?php
 }
 $db = NULL;

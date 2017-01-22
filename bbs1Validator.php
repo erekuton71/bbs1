@@ -69,7 +69,7 @@ class bbs1Validator
     public function rangeCheck($value, $name, $max, $min) {
         if (trim($value) !== '') {
             if ($value > $max || $value < $min) {
-                $this->_errors[] = "{name}は{$min}～{$max}で指定してください。";
+                $this->_errors[] = "{$name}は{$min}～{$max}で指定してください。";
             }
         }
     }
@@ -106,7 +106,7 @@ class bbs1Validator
     }
 
     //重複検証（データベースの内容と重複していないか）
-    public function daplicateCheck($value, $name, $opts) {
+    public function daplicateCheck($value, $name, $sql) {
         try {
             $db = getDb();
             $stt = $db->prepare($sql);

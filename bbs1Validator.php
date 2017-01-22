@@ -11,17 +11,16 @@ class bbs1Validator
         //プライベート変数$_errorsを初期化
         $_errors = array();
         //$_GET、$_POST、$_COOKIEの文字エンコーディングをチェック
-        /*
         $this->checkEncoding($_GET);
         $this->checkEncoding($_POST);
         $this->checkEncoding($_COOKIE);
-        */
+
         //$_GET、$_POST、$_COOKIEのNULLバイトをチェック
         $this->checkNull($_GET);
         $this->checkNull($_POST);
         $this->checkNull($_POST);
     }
-/*
+
     //配列要素に含まれる文字エンコーディングをチェック
     private function checkEncoding(array $data) {
         foreach ($data as $key => $value) {
@@ -30,7 +29,7 @@ class bbs1Validator
             }
         }
     }
-*/
+
     //配列要素に含まれるNULLバイトをチェック
     private function checkNull(array $data) {
         foreach ($data as $key => $value) {

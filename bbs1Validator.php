@@ -24,7 +24,7 @@ class bbs1Validator
     //配列要素に含まれる文字エンコーディングをチェック
     private function checkEncoding(array $data) {
         foreach ($data as $key => $value) {
-            if (preg_match('/\0', $value)) {
+            if (preg_match('/\0/', $value)) {
                 $this->_errors[] = "{$key}は不正な文字コードです。";
             }
         }

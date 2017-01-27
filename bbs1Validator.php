@@ -96,11 +96,11 @@ class bbs1Validator
     }
 
     //配列要素検証（配列$optsの要素のいずれかであるか）
-    public function inArrayCheck($value, $name, $opts) {
+    public function inArrayCheck($value, $word, $opts) {
         if (trim($value) !== '') {
             if (!in_array($value, $opts)) {
                 $tmp = implode(',', $opts); //配列要素を連結
-                $this->_errors[] = "{$name}は正しい形式で入力してください。";
+                $this->_errors[] = "{$word}は{$tmp}の中から選択してください。";
             }
         }
     }
